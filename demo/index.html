@@ -3,18 +3,25 @@
     <head>
         <title></title>
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+        <script type="text/javascript"
+                src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
         <script type="text/javascript" src="../src/knockout-hint.js"></script>
-        <style type="text/css">
-            .hidden {
-                display: none;
-            }
-        </style>
     </head>
+    <style type="text/css">
+        .custom-hidden {
+            display: none;
+        }
+    </style>
     <body>
         <div>
             <button data-bind="click: load">Load</button>
-            <span data-bind="hint: isLoading">It is loading now...</span>
+            <p data-bind="hint: isLoading, hintOptions: { hiddenClass: 'custom-hidden' }">
+                Loading... (This is hidden by custom css class)
+            </p>
+
+            <p data-bind="hint: isLoading">
+                Loading... (This is hidden by default css class)
+            </p>
         </div>
 
         <script type="text/javascript">
@@ -25,9 +32,7 @@
                             _isLoading(true);
 
                             setTimeout(function () {
-
                                 _isLoading(false);
-
                             }, 1000);
 
                         };
