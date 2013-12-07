@@ -17,11 +17,7 @@
                 insertCustomCss();
             }
 
-            if (observable()) {
-                $(element).removeClass(cssClass);
-            } else {
-                $(element).addClass(cssClass);
-            }
+            applyHint(observable, element, cssClass);
         },
 
         update:function (element, valueAccessor, allBindingsAccessor) {
@@ -35,13 +31,17 @@
                 cssClass = options.hiddenClass;
             }
 
-            if (observable()) {
-                $(element).removeClass(cssClass);
-            } else {
-                $(element).addClass(cssClass);
-            }
+            applyHint(observable, element, cssClass);
         }
     };
+
+    function applyHint(observable, element, cssClass){
+        if (observable()) {
+            $(element).removeClass(cssClass);
+        } else {
+            $(element).addClass(cssClass);
+        }
+    }
 
     function insertCustomCss(){
         var css = [
