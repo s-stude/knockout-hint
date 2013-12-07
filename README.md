@@ -67,7 +67,7 @@ In case you want use your own CSS class to make the `hint` hidden, you can overr
 </span>
 ```
 
-That makes it very easy to integrate with your CSS library (hello Twitter Bootstrap :smiley: ), or any other logic on the page.
+That makes it very easy to integrate with your CSS library (hello Twitter Bootstrap :smiley:), or any other logic on the page.
 
 ## I should care of the hint element and additional VM property... REALLY?
 
