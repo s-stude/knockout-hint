@@ -1,0 +1,21 @@
+{
+  "name": "knockout-hint",
+  "version": "0.0.1",
+  "description": "Knockout binding handler that allows you to display hints on the page about any background work that's performing right now.",
+  "main": "knockout-hint.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/s-stude/knockout-hint.git"
+  },
+  "keywords": [
+    "knockout",
+    "hint"
+  ],
+  "author": "Akim Khalilov",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "669d5acc11460d577a8c6cfef2776145fc398e3b"
+}
