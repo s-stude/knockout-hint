@@ -1,7 +1,13 @@
 # Knockout-hint
 
 Knockout binding handler that allows you to display hints on the page about any background work that's performing right now.
- 
+
+## Gimme it right now!!!
+
+```
+npm install knockout-hint
+```
+
 ## Intro
 
 
