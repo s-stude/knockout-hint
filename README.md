@@ -4,9 +4,7 @@ Knockout binding handler that allows you to display hints on the page about any 
 
 ## Gimme it right now!!!
 
-```
-npm install knockout-hint
-```
+[![NPM](https://nodei.co/npm/knockout-hint.png)](https://nodei.co/npm/knockout-hint/)
 
 ## Intro
 
