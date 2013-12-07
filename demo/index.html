@@ -15,13 +15,16 @@
     <body>
         <div>
             <button data-bind="click: load">Load</button>
-            <p data-bind="hint: isLoading, hintOptions: { hiddenClass: 'custom-hidden' }">
-                Loading... (This is hidden by custom css class)
-            </p>
+            <span data-bind="hint: isLoading">
+                Loading... (This is hidden by <b>default</b> css class)
+            </span>
+        </div>
 
-            <p data-bind="hint: isLoading">
-                Loading... (This is hidden by default css class)
-            </p>
+        <div>
+            <button data-bind="click: load">Load</button>
+            <span data-bind="hint: isLoading, hintOptions: { hiddenClass: 'custom-hidden' }">
+                Loading... (This is hidden by <b>custom</b> css class)
+            </span>
         </div>
 
         <script type="text/javascript">
@@ -33,7 +36,7 @@
 
                             setTimeout(function () {
                                 _isLoading(false);
-                            }, 1000);
+                            }, 1500);
 
                         };
 
