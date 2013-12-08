@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript"
+                src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+        <script type="text/javascript" src="../src/knockout-hint.js"></script>
+    </head>
+    <style type="text/css">
+        .custom-hidden {
+            display: none;
+        }
+    </style>
+    <body>
+        <div>
+            <button data-bind="click: load">Load</button>
+            <span data-bind="hint: isLoading">
+                Loading... (This is hidden by <b>default</b> css class)
+            </span>
+        </div>
+
+        <div>
+            <button data-bind="click: load">Load</button>
+            <span data-bind="hint: isLoading, hintOptions: { hiddenClass: 'custom-hidden' }">
+                Loading... (This is hidden by <b>custom</b> css class)
+            </span>
+        </div>
+
+        <script type="text/javascript">
+            var VM = function () {
+                var _isLoading = ko.observable(false),
+                        _load = function () {
+
+                            _isLoading(true);
+
+                            setTimeout(function () {
+                                _isLoading(false);
+                            }, 1500);
+
+                        };
+
+                return {
+                    isLoading:_isLoading,
+                    load:_load
+                };
+            };
+
+            ko.applyBindings(new VM());
+        </script>
+    </body>
+</html>
