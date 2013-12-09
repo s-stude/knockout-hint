@@ -2,41 +2,157 @@
 <html>
     <head>
         <title></title>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript"
-                src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
-        <script type="text/javascript" src="../src/knockout-hint.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link rel="stylesheet" href="css/prism.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
-    <style type="text/css">
-        .custom-hidden {
-            display: none;
-        }
-    </style>
     <body>
-        <div>
-            <button data-bind="click: load">Load</button>
-            <span data-bind="hint: isLoading">
-                Loading... (This is hidden by <b>default</b> css class)
-            </span>
-        </div>
+        <div class="pure-g layout">
+            <div class="pure-u-1 content">
+                <h1>Knockout-hint</h1>
 
-        <div>
-            <button data-bind="click: load">Load</button>
-            <span data-bind="hint: isLoading, hintOptions: { hiddenClass: 'custom-hidden' }">
-                Loading... (This is hidden by <b>custom</b> css class)
-            </span>
-        </div>
+                <p>Knockout binding handler that allows you to display hints on the page about any background work
+                    that's
+                    performing right now.</p>
 
-        <script type="text/javascript">
+                <h2>Gimme it right now!!!</h2>
+                <pre><code class="language-bash">&gt;bower install knockout-hint</code></pre>
+                <pre><code class="language-bash">&gt;npm install knockout-hint</code></pre>
+                <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30">
+                <a href="https://nodei.co/npm/knockout-hint/"><img src="https://nodei.co/npm/knockout-hint.png?mini=true"></a>
+
+                <h2>Intro</h2>
+
+                <p>How many times did you used <code>visible</code> binding to display / hide any
+                    element on the page to show that
+                    any
+                    background work is performing? <i>Please wait, we are saving...</i> <i>Searching data...</i> <i>Connecting
+                        to the server...</i>
+                </p>
+
+                <p>Stop using <code>visible</code> binding!</p>
+
+                <h2>Knockout-hint to the rescue!</h2>
+
+                <p>Knockout <code>hint</code> binding allows you take care of such things.</p>
+                <pre><code class="language-markup">&lt;button class="pure-button pure-button-secondary" data-bind="click: load"&gt;
+&lt;span data-bind="hint: isLoading"&gt;
+    Loading...
+&lt;/span&gt;</code></pre>
+
+                <pre><code class="language-javascript">var VM = function () {
+    var _isLoading = ko.observable(false),
+
+        _load = function () {
+            // background work goes here...
+            _isLoading(true);
+
+            // emulating the work
+            setTimeout(function () {
+                _isLoading(false);
+            }, 1000);
+
+        };
+
+    return {
+        isLoading:_isLoading,
+        load:_load
+    };
+};
+
+ko.applyBindings(new VM());</code></pre>
+
+                <h2>Demo:</h2>
+
+                <div>
+                    <button class="pure-button pure-button-success" data-bind="click: load">Load</button>
+                    <span data-bind="hint: isLoading">
+                        Loading...
+                    </span>
+                </div>
+                <h2>Features</h2>
+
+                <p>The previous example is what you need to get started. Knockout will take care of the `hint` property,
+                    and will show, or hide the hint element on the page.</p>
+
+                <p><b>Default implementation</b> is that it's using <code>.hidden</code> CSS class to
+                    hide the element. That CSS rule
+                    will be added to the bottom of the page by default. You shouldn't care of that.</p>
+
+                <p>In case you want use your own CSS class to make the <code>hint</code> hidden, you can
+                    override the defaults by
+                    passing binding options.</p>
+
+                <h3>Options:</h3>
+
+                <pre><code class="language-markup">&lt;button class="pure-button pure-button-secondary" data-bind="click: load"&gt;
+&lt;span data-bind="hint: isLoading, hintOptions: { hiddenClass: 'custom-hidden' }"&gt;
+    Loading...
+&lt;/span&gt;</code></pre>
+
+
+
+                <p>That makes it very easy to integrate with your CSS library (hello Twitter Bootstrap :smiley:), or any
+                    other logic on the page.</p>
+
+                <h2>I should care of the hint element and additional VM property... REALLY?</h2>
+
+                <p>Yes! :wink:</p>
+
+                <p>This is very simple helper, and you need insert all <code>hint</code> elements by
+                    your own. That makes it <i>very
+                        flexible for usage</i>. There is no any dynamically inserted html element. You can place so many
+                    hint
+                    elements on the page as you wish.</p>
+
+                <h2>Licence</h2>
+
+                <p>The MIT License (MIT)</p>
+
+                <p>Copyright (c) 2013 Akim Khalilov</p>
+
+                <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+                    this software and associated documentation files (the "Software"), to deal in
+                    the Software without restriction, including without limitation the rights to
+                    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+                    the Software, and to permit persons to whom the Software is furnished to do so,
+                    subject to the following conditions:</p>
+
+                <p>The above copyright notice and this permission notice shall be included in all
+                    copies or substantial portions of the Software.</p>
+
+                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+                    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+                    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+                    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+                    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </div>
+        </div>
+        <script
+                type="text/javascript"
+                src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script
+                type="text/javascript"
+                src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+        <script
+                type="text/javascript"
+                src="js/knockout-hint.js"></script>
+
+        <script src="js/prism.js"></script>
+
+        <script>
             var VM = function () {
                 var _isLoading = ko.observable(false),
                         _load = function () {
-
+                            // background work goes here...
                             _isLoading(true);
 
+                            // emulating the work
                             setTimeout(function () {
                                 _isLoading(false);
-                            }, 1500);
+                            }, 1000);
 
                         };
 

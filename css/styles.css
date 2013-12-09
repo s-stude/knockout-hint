@@ -1,0 +1,15 @@
+body,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: 'Oxygen', sans-serif;
+}
+
+.content {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.custom-hidden {
+    display: none !important;
+}
