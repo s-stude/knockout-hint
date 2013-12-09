@@ -3,8 +3,10 @@
 Knockout binding handler that allows you to display hints on the page about any background work that's performing right now.
 
 ## Gimme it right now!!!
-
-[![NPM](https://nodei.co/npm/knockout-hint.png)](https://nodei.co/npm/knockout-hint/)
+```bash
+bower install knockout-hint
+```
+[![NPM](https://nodei.co/npm/knockout-hint.png?mini=true)](https://nodei.co/npm/knockout-hint/)
 
 ## Intro
 
