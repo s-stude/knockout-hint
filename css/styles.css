@@ -45,3 +45,14 @@ button {
     transition: .1s linear box-shadow;
     outline: none;
 }
+.subtitle{
+    float:right;
+    font-weight: 400;
+}
+.subtitle a{
+    color: #07a;
+    text-decoration: none;
+    
+}.subtitle a:hover{
+    text-decoration: underline;
+}

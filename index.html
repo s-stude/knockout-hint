@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="content">
-            <h1>Knockout-hint</h1>
+            <h1 class="title">Knockout-hint <small class="subtitle"><a href="/" title="My blog">InMemory</a></small></h1>
 
             <p>Knockout binding handler that allows you to display hints on the page about any background work
                 that's
@@ -62,7 +62,7 @@ ko.applyBindings(new VM());</code></pre>
                 <h2>Demo:</h2>
 
                 <div>
-                    <button class="pure-button pure-button-success" data-bind="click: load">Load</button>
+                    <button data-bind="click: load">Load</button>
                     <span data-bind="hint: isLoading">
                         Loading...
                     </span>
